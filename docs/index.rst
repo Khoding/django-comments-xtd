@@ -96,6 +96,11 @@ specific features, or check out the use cases to see how others customize it.
 Change Log
 ==========
 
+[2.9.3] -
+---------
+
+    * Enhance the queryset in notify_comment_followers using distinct when possible. And fallback to the previous queryset when distinct is not supported, as is the case for sqlite. See [issue-326](https://github.com/danirus/django-comments-xtd/issues/326). Thanks to @enzedonline.
+
 [2.9.2] - 2021-06-19
 --------------------
 

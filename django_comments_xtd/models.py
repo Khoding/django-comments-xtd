@@ -227,7 +227,8 @@ def publish_or_unpublish_nested_comments(comment, are_public=False):
         cm_id = nested.pop()
         qs = XtdComment.objects.filter(~Q(pk=cm_id), parent_id=cm_id)
         nested.extend([cm.id for cm in qs])
-        qs.update(is_public=are_public)
+        if qs:
+            qs.update(is_public=are_public)
     # Update nested_count in parents comments in the same thread.
     # The comment.nested_count doesn't change because the comment's is_public
     # attribute is not changing, only its nested comments change, and it will
